@@ -1588,6 +1588,19 @@
 
 
   <li class="md-nav__item">
+    <a href="../../page/lsp-nginx/" class="md-nav__link">
+      Nginx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
     <a href="../../page/lsp-nim/" class="md-nav__link">
       Nim
     </a>
@@ -1744,6 +1757,19 @@
 
 
   <li class="md-nav__item">
+    <a href="../../page/lsp-pylsp/" class="md-nav__link">
+      Python (Pylsp)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
     <a href="../../page/lsp-jedi/" class="md-nav__link">
       Python (Jedi Language Server)
     </a>
@@ -1758,7 +1784,7 @@
 
   <li class="md-nav__item">
     <a href="../../page/lsp-pyls/" class="md-nav__link">
-      Python (Palantir)
+      Python (Palantir deprecated)
     </a>
   </li>
 
@@ -1967,6 +1993,19 @@
   <li class="md-nav__item">
     <a href="../../page/lsp-latex/" class="md-nav__link">
       TeX, LaTeX, etc (texlab, external)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../page/lsp-toml/" class="md-nav__link">
+      TOML
     </a>
   </li>
 
@@ -2473,11 +2512,27 @@
                 
                 
                 <h1 id="sample-configuration">Sample configuration:<a class="headerlink" href="#sample-configuration" title="Permanent link">#</a></h1>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">setq</span> <span class="nv">lsp-sqls-connections</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;sql-mode-hook</span> <span class="ss">&#39;lsp</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">lsp-sqls-workspace-config-path</span> <span class="no">nil</span><span class="p">)</span>
+<span class="p">(</span><span class="k">setq</span> <span class="nv">lsp-sqls-connections</span>
     <span class="o">&#39;</span><span class="p">(((</span><span class="nv">driver</span> <span class="o">.</span> <span class="s">&quot;mysql&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">dataSourceName</span> <span class="o">.</span> <span class="s">&quot;yyoncho:local@tcp(localhost:3306)/foo&quot;</span><span class="p">))</span>
+      <span class="p">((</span><span class="nv">driver</span> <span class="o">.</span> <span class="s">&quot;mssql&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">dataSourceName</span> <span class="o">.</span> <span class="s">&quot;Server=localhost;Database=sammy;User Id=yyoncho;Password=hunter2;&quot;</span><span class="p">))</span>
       <span class="p">((</span><span class="nv">driver</span> <span class="o">.</span> <span class="s">&quot;postgresql&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">dataSourceName</span> <span class="o">.</span> <span class="s">&quot;host=127.0.0.1 port=5432 user=yyoncho password=local dbname=sammy sslmode=disable&quot;</span><span class="p">))))</span>
 </code></pre></div>
-<p>After you have started the server you have pick server connection and database via <code>M-x lsp-execute-code-action</code> (or corresponding <code>M-x lsp-sqls-*</code>) command.</p>
+<p>Alternatively, you can leave <code>lsp-sqls-workspace-config-path</code> to the default "workspace" value, and put a json file in <code>&lt;project&gt;/.sqls/config.json</code> containing
+<div class="highlight"><pre><span></span><code>{
+  &quot;sqls&quot;: {
+    &quot;connections&quot;: [
+      {
+        &quot;driver&quot;: &quot;mysql&quot;,
+        &quot;dataSourceName&quot;: &quot;yyoncho:local@tcp(localhost:3306)/foo&quot;
+      }, 
+      …etc…
+    ]
+  }
+}
+</code></pre></div></p>
+<p>Now lsp should start in sql-mode buffers, and you can pick a server connection with <code>M-x lsp-execute-code-action</code> and "Switch Connections" (or directly with <code>M-x lsp-sql-switch-connection</code>). You can change database with <code>M-x lsp-execute-code-action</code> and "Switch Database" (or <code>M-x lsp-sql-switch-database</code>).</p>
                 
                   
                     
@@ -2486,7 +2541,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 3, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 21, 2022</span>
     
   </small>
 </div>
@@ -2505,41 +2560,6 @@
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../lsp-rust-rls/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Lsp rust rls
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../../page/CHANGELOG/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                None
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

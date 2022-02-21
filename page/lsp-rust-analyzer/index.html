@@ -1592,6 +1592,19 @@
 
 
   <li class="md-nav__item">
+    <a href="../lsp-nginx/" class="md-nav__link">
+      Nginx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
     <a href="../lsp-nim/" class="md-nav__link">
       Nim
     </a>
@@ -1748,6 +1761,19 @@
 
 
   <li class="md-nav__item">
+    <a href="../lsp-pylsp/" class="md-nav__link">
+      Python (Pylsp)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
     <a href="../lsp-jedi/" class="md-nav__link">
       Python (Jedi Language Server)
     </a>
@@ -1762,7 +1788,7 @@
 
   <li class="md-nav__item">
     <a href="../lsp-pyls/" class="md-nav__link">
-      Python (Palantir)
+      Python (Palantir deprecated)
     </a>
   </li>
 
@@ -1980,6 +2006,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#snippet-insertionrefactor" class="md-nav__link">
+    Snippet insertion/refactor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#open-cargotoml" class="md-nav__link">
     Open Cargo.toml
   </a>
@@ -2072,6 +2105,13 @@
           <li class="md-nav__item">
   <a href="#lsp-rust-analyzer-cargo-run-build-scripts" class="md-nav__link">
     lsp-rust-analyzer-cargo-run-build-scripts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsp-rust-analyzer-cargo-unset-test" class="md-nav__link">
+    lsp-rust-analyzer-cargo-unset-test
   </a>
   
 </li>
@@ -2537,6 +2577,19 @@
   <li class="md-nav__item">
     <a href="../lsp-latex/" class="md-nav__link">
       TeX, LaTeX, etc (texlab, external)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../lsp-toml/" class="md-nav__link">
+      TOML
     </a>
   </li>
 
@@ -3131,6 +3184,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#snippet-insertionrefactor" class="md-nav__link">
+    Snippet insertion/refactor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#open-cargotoml" class="md-nav__link">
     Open Cargo.toml
   </a>
@@ -3223,6 +3283,13 @@
           <li class="md-nav__item">
   <a href="#lsp-rust-analyzer-cargo-run-build-scripts" class="md-nav__link">
     lsp-rust-analyzer-cargo-run-build-scripts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsp-rust-analyzer-cargo-unset-test" class="md-nav__link">
+    lsp-rust-analyzer-cargo-unset-test
   </a>
   
 </li>
@@ -3628,6 +3695,15 @@
 <h3 id="auto-import">auto-import<a class="headerlink" href="#auto-import" title="Permanent link">#</a></h3>
 <p>Get a list of possible auto import candidates with <code>lsp-execute-code-action</code></p>
 <p><img alt="" src="../../examples/lsp-rust-analyzer-auto-import.png" /></p>
+<h3 id="snippet-insertionrefactor">Snippet insertion/refactor<a class="headerlink" href="#snippet-insertionrefactor" title="Permanent link">#</a></h3>
+<p>To support refactorings that require snippet insertion(eg. generating
+derive clause etc), make sure that you have enabled <code>yasnippet</code> and
+<code>yas-minor-mode</code>. If you are using <code>use-package</code>, you can do something
+like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">yasnippet</span>
+  <span class="nb">:ensure</span> <span class="no">t</span>
+  <span class="nb">:hook</span> <span class="p">((</span><span class="nv">lsp-mode</span> <span class="o">.</span> <span class="nv">yas-minor-mode</span><span class="p">)))</span>
+</code></pre></div>
 <h3 id="open-cargotoml">Open Cargo.toml<a class="headerlink" href="#open-cargotoml" title="Permanent link">#</a></h3>
 <p><code>lsp-rust-analyzer-open-cargo-toml</code> opens the Cargo.toml closest to the current file. Calling it with a universal argument will open the Cargo.toml in another window.</p>
 <p>Corresponds to <a href="https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/dev/lsp-extensions.md#open-cargotoml">the rust-analyzer LSP extension</a></p>
@@ -3706,6 +3782,11 @@ The command should include <code>--message=format=json</code> or similar option.
 <p><em>Type:</em> <code>boolean</code></p>
 <p><em>Default:</em> <code>t</code></p>
 <p>Whether to run build scripts (<code>build.rs</code>) for more precise code analysis.</p>
+<hr />
+<h3 id="lsp-rust-analyzer-cargo-unset-test"><code>lsp-rust-analyzer-cargo-unset-test</code><a class="headerlink" href="#lsp-rust-analyzer-cargo-unset-test" title="Permanent link">#</a></h3>
+<p><em>Type:</em> <code>lsp-string-vector</code></p>
+<p><em>Default:</em> <code>[]</code></p>
+<p>force rust-analyzer to unset <code>#[cfg(test)]</code> for the specified crates.</p>
 <hr />
 <h3 id="lsp-rust-analyzer-cargo-watch-args"><code>lsp-rust-analyzer-cargo-watch-args</code><a class="headerlink" href="#lsp-rust-analyzer-cargo-watch-args" title="Permanent link">#</a></h3>
 <p><em>Type:</em> <code>lsp-string-vector</code></p>
@@ -3982,7 +4063,7 @@ compiling unnecessary things.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 3, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 21, 2022</span>
     
   </small>
 </div>

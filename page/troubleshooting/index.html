@@ -1665,6 +1665,19 @@
 
 
   <li class="md-nav__item">
+    <a href="../lsp-nginx/" class="md-nav__link">
+      Nginx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
     <a href="../lsp-nim/" class="md-nav__link">
       Nim
     </a>
@@ -1821,6 +1834,19 @@
 
 
   <li class="md-nav__item">
+    <a href="../lsp-pylsp/" class="md-nav__link">
+      Python (Pylsp)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
     <a href="../lsp-jedi/" class="md-nav__link">
       Python (Jedi Language Server)
     </a>
@@ -1835,7 +1861,7 @@
 
   <li class="md-nav__item">
     <a href="../lsp-pyls/" class="md-nav__link">
-      Python (Palantir)
+      Python (Palantir deprecated)
     </a>
   </li>
 
@@ -2044,6 +2070,19 @@
   <li class="md-nav__item">
     <a href="../lsp-latex/" class="md-nav__link">
       TeX, LaTeX, etc (texlab, external)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../lsp-toml/" class="md-nav__link">
+      TOML
     </a>
   </li>
 
@@ -2619,9 +2658,7 @@ Modify the path using <code>setpath</code> function.</p>
 <li>Install the new versions of the packages.</li>
 </ol>
 <h4 id="check-if-any-package-or-wrong-config-could-be-causing-the-issue">Check if any package or wrong config could be causing the issue<a class="headerlink" href="#check-if-any-package-or-wrong-config-could-be-causing-the-issue" title="Permanent link">#</a></h4>
-<p>Try to repro the issue with our <a href="https://github.com/emacs-lsp/lsp-mode/blob/master/scripts/lsp-start-plain.el">lsp-start-plain.el</a> file, which has just the necessary config/packages for lsp-mode work.</p>
-<div class="highlight"><pre><span></span><code>emacs -q -l lsp-start-plain.el
-</code></pre></div>
+<p>Try to repro the issue with our <a href="https://github.com/emacs-lsp/lsp-mode/blob/master/scripts/lsp-start-plain.el">lsp-start-plain.el</a> file, which has just the necessary config/packages for lsp-mode work using <code>M-x lsp-start-plain</code>.</p>
                 
                   
                     
@@ -2630,7 +2667,7 @@ Modify the path using <code>setpath</code> function.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 3, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 21, 2022</span>
     
   </small>
 </div>
